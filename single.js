@@ -18,3 +18,16 @@ function getSingle(fn) {
     return ret || (ret = fn.apply(this, args));
   }
 }
+
+// 将任意一个构造器转成单例，实现了职责单一化
+function proxySingle(fn) {
+  let instance = null;
+
+  return function (...args) {
+    if (instance) {
+      return instance;
+    } else {
+      return instance = new fn(...args);
+    }
+  }
+}
