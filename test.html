@@ -7,32 +7,30 @@
   <title>Document</title>
 
   <style>
-    /* span {
-      display: inline-block;
-      font-size: 48px;
-    }
-
-    .icon {
-    } */
-
-    .demo3 {
-      height: 100px;
-      display: flex;
-      align-items: center;
-    }
-
-    span {
-      font-size: 26px;
+    .foo {
+      width: 100%;
+      height: 1000px;
+      background: red;
     }
   </style>
 </head>
 
 <body>
+  <script>
+    // 从url参数获取值
 
-  <div class="demo3">
-    <span>xh</span>
-    <img class="icon" style="width: 50px;" src="https://image.zhangxinxu.com/image/study/s/s256/mm1.jpg">
-  </div>
+    function query(key) {
+
+      let search = window.location.search;
+      search = search.substring(1);
+
+      let reg = new RegExp(`(^|&)${key}=([^&]*)(&|$)`);
+      let arr = search.match(reg);
+
+      return arr[2] || '';
+    }
+
+  </script>
 </body>
 
 </html>
