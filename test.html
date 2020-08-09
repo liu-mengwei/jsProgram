@@ -7,30 +7,20 @@
   <title>Document</title>
 
   <style>
-    .foo {
-      width: 100%;
-      height: 1000px;
-      background: red;
+    .wrapper {
+      overflow: hidden;
     }
   </style>
 </head>
 
 <body>
-  <script>
-    // 从url参数获取值
+  <div class="wrapper">
+    <p>12</p>
+  </div>
 
-    function query(key) {
-
-      let search = window.location.search;
-      search = search.substring(1);
-
-      let reg = new RegExp(`(^|&)${key}=([^&]*)(&|$)`);
-      let arr = search.match(reg);
-
-      return arr[2] || '';
-    }
-
-  </script>
+  <div class="wrapper">
+    <p>12</p>
+  </div>
 </body>
 
 </html>
