@@ -12,7 +12,7 @@ function deepClone(obj) {
 
   if (Array.isArray(obj)) {
     ret = [];
-  } else if (Object.prototype.toString(obj) === '[object Object]') { //只有这种对象可以用直接量创建
+  } else if (Object.prototype.toString.call(obj) === '[object Object]') { //只有这种对象可以用直接量创建
     ret = {};
   } else {
     // 正则 

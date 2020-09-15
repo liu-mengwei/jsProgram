@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .draggable {
+      width: 200px;
+      height: 20px;
+      text-align: center;
+      background: white;
+    }
+
+    .dropzone {
+      width: 200px;
+      height: 20px;
+      background: blueviolet;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="dropzone">
+    <div class="draggable" draggable="true">
+      1
+    </div>
+  </div>
+  <div class="dropzone">
+    <div class="draggable" draggable="true">
+      2
+    </div>
+  </div>
+  <div class="dropzone">
+    <div class="draggable" draggable="true">
+      3
+    </div>
+  </div>
+  <div class="dropzone">
+    <div class="draggable" draggable="true">
+      4
+    </div>
+  </div>
+
+
+  <script>
+    let dragEle;
+
+    document.addEventListener('dragstart', (event) => {
+      if (event.target.className === 'draggable') {
+        dragEle = event.target;
+        dragEle.style.opacity = 0.5;
+      }
+    })
+
+    document.addEventListener('dragstart', (event) => {
+      if (event.target.className === 'draggable') {
+        dragEle.style.opacity = 1;
+      }
+    })
+
+    // 需要阻止默认行为， 以表明这是可以防止的元素
+    document.addEventListener('dragover', (event) => {
+      if (event.target.className === 'dropzone') {
+        event.preventDefault();
+      }
+    })
+
+    document.addEventListener('drop', (event) => {
+      if (event.target.className === 'dropzone') {
+        event.target.removeChild(event.target.children[0]);
+        event.target.appendChild(dragEle);
+      }
+    })
+
+
+
+
+  </script>
+
+
+</body>
+
+
+</html>
